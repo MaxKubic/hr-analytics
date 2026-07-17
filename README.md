@@ -24,3 +24,13 @@ Dataset obsahuje údaje o zaměstnancích, tréninkových programech, engagement
 - Jupyter Notebook
 
 ## Struktura repozitáře
+hr-analytics/
+├── data/               # surová a vyčištěná data
+├── notebooks/          # Jupyter notebooky s analýzou
+├── sql/                # SQL dotazy
+├── visuals/             # exportované grafy
+└── README.md
+## Klíčová zjištění
+
+
+## Jak spustit projekt
