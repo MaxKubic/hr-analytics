@@ -43,11 +43,15 @@ výkonu, věk ani business unit – nevykazuje silný vztah k odchodu zaměstnan
 Supervisor navíc neumožňuje smysluplnou týmovou analýzu, protože v průměru spravuje
 jen 1 podřízeného.
 
+![Attrition podle Business Unit](visuals/attrition_by_business_unit.png)
+
 **Training ROI:** Firma vynaložila na školení celkem $1 675 886, z čehož téměř
 polovina ($828 402, tedy 49,4 %) šla na tréninky, které zaměstnanci nedokončili nebo
 v nich neuspěli. Přitom nebyl nalezen měřitelný rozdíl v satisfaction, engagement ani
 performance skóre mezi zaměstnanci s různým výsledkem školení. Doporučení: před dalším
 rozšiřováním tréninkových programů prošetřit příčiny vysoké míry Failed/Incomplete.
+
+![Rozdělení nákladů na školení](visuals/training_cost_breakdown.png)
 
 **Pay equity:** Dataset neobsahuje přesnou výši mzdy, proto byla rovnost odměňování
 zkoumána přes zastoupení v platových zónách (PayZone). Zastoupení podle genderu i rasy
