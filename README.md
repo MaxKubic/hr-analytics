@@ -11,7 +11,7 @@ analýzu až po vizualizace a konkrétní doporučení.
 ## Otázky, na které odpovídám
 1. Jaké faktory nejvíc souvisí s odchodem zaměstnanců (attrition)?
 2. Vyplácí se firmě investice do školení – mění se satisfaction/performance po tréninku?
-3. Existují neopodstatněné rozdíly v platu nebo povýšení podle genderu/rasy při srovnatelné pozici a zkušenosti?
+3. Existují rozdíly v zastoupení genderu/rasy napříč platovými zónami a klasifikacemi zaměstnanců?
 4. Liší se míra attrition podle konkrétních supervizorů/týmů?
 
 ## Data
@@ -36,6 +36,56 @@ hr-analytics/
 ├── visuals/             # exportované grafy
 └── README.md
 ## Klíčová zjištění
-Analyzovali jsme vztah mezi odchodem zaměstnanců (51,1% míra) a dostupnými proměnnými — satisfaction, engagement, work-life balance skóre, performance hodnocení, věkem a business unit. Žádná z těchto proměnných nevykazuje silný vztah k attrition, což naznačuje buď náhodné rozložení v datech, nebo že skutečné důvody odchodu (mzda, kariérní příležitosti, externí nabídky) nejsou v datasetu zachyceny. Sloupec Supervisor navíc neumožňuje týmovou analýzu, protože průměrně spravuje jen 1 podřízeného.
+
+**Attrition (odchody zaměstnanců):** Celková míra odchodu v datasetu je 51,1 %. Žádná
+z dostupných proměnných – satisfaction, engagement, work-life balance skóre, hodnocení
+výkonu, věk ani business unit – nevykazuje silný vztah k odchodu zaměstnanců. Sloupec
+Supervisor navíc neumožňuje smysluplnou týmovou analýzu, protože v průměru spravuje
+jen 1 podřízeného.
+
+**Training ROI:** Firma vynaložila na školení celkem $1 675 886, z čehož téměř
+polovina ($828 402, tedy 49,4 %) šla na tréninky, které zaměstnanci nedokončili nebo
+v nich neuspěli. Přitom nebyl nalezen měřitelný rozdíl v satisfaction, engagement ani
+performance skóre mezi zaměstnanci s různým výsledkem školení. Doporučení: před dalším
+rozšiřováním tréninkových programů prošetřit příčiny vysoké míry Failed/Incomplete.
+
+**Pay equity:** Dataset neobsahuje přesnou výši mzdy, proto byla rovnost odměňování
+zkoumána přes zastoupení v platových zónách (PayZone). Zastoupení podle genderu i rasy
+je napříč všemi třemi zónami rovnoměrné (rozdíly do 3 procentních bodů), stejně jako
+hodnocení výkonu mezi muži a ženami. Nebyly nalezeny známky systematické nerovnosti
+v přiřazování do platových pásem.
+
+**Shrnutí:** Napříč všemi třemi otázkami se ukázal konzistentní vzorec – běžně
+sledované HR metriky (satisfaction, engagement, performance) nekorelují se sledovanými
+výstupy (attrition, training outcome). To může znamenat, že skutečné hnací faktory
+(mzda, kariérní příležitosti, externí nabídky) nejsou v datasetu zachyceny, nebo že jde
+o syntetická data bez vestavěných vzorců. Jasně kvantifikovatelný nález přineslo
+zkoumání nákladů na školení.
 
 ## Jak spustit projekt
+
+1. Naklonuj repozitář:
+```bash
+   git clone https://github.com/MaxKubic/hr-analytics.git
+   cd hr-analytics
+```
+
+2. Vytvoř a aktivuj virtuální prostředí:
+```bash
+   python -m venv .venv
+   source .venv/bin/activate  # Windows: .venv\Scripts\activate
+```
+
+3. Nainstaluj závislosti:
+```bash
+   pip install -r requirements.txt
+```
+
+4. Spusť notebooky v pořadí (v `notebooks/`):
+   - `01_exploration.ipynb` – průzkum a čištění dat
+   - `02_attrition_analysis.ipynb` – analýza odchodů zaměstnanců
+   - `03_training_roi.ipynb` – analýza návratnosti školení
+   - `04_pay_equity_analysis.ipynb` – analýza rovnosti odměňování
+
+   Vyčištěný dataset (`data/processed/HR_Dataset_Clean.csv`) je součástí repozitáře,
+   takže notebooky 02–04 lze spustit i bez opětovného spuštění čištění dat.
